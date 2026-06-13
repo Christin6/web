@@ -1,17 +1,32 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 
+// Pull the collection using the modern Loader framework
+const blogEntries = await getCollection('blog');
+const chronologicalEntries = blogEntries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle="Maricel C - Home">
+  <section class="intro-block">
+    <img src="../icons/computer_explorer_2k-4.png" />
+    <h1>Welcome 👋</h1>
+    <p>Documenting deep-dives into application stacks, system backends, and biomechanics.</p>
+  </section>
+
+  <div class="feed-grid">
+    {chronologicalEntries.map((post) => (
+      <article class="feed-card">
+        <h2 class="card-title">
+          <a href={`./blog/${post.id}`}>{post.data.title}</a>
+        </h2>
+        <p class="card-desc">{post.data.description}</p>
+        <div class="badge-row">
+          {post.data.tags.map((tag) => (
+            <a href={`./tags/${tag}`} class="tag-badge">#{tag}</a>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

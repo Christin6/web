@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+// 1. Generate a path for every markdown file found
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+// 2. Grab the specific post data for this URL
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout pageTitle={post.data.title}>
+  <h1>{post.data.title}</h1>
+  <div class="markdown-content">
+    <Content /> </div>
+</BaseLayout>

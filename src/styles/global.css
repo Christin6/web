@@ -1,0 +1,115 @@
+/* Customized Color System Variables */
+:root {
+    --canvas-bg: #1c1c20;
+    --primary-txt: #e6edf3;
+    --pastel-accent: #ffb7b2; /* Pastel Pink Tint */
+    --widget-border: #e0bbe4; /* Pastel Purple Tint */
+    --surface-layer: #26282b;
+}
+
+body {
+    background-color: var(--canvas-bg);
+    color: var(--primary-txt);
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link:hover,
+a:hover {
+    text-decoration: underline var(--widget-border) 3px;
+}
+
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+}
+
+.header-border {
+    color: var(--widget-border); 
+    width: 90%;
+}
+
+.content-container {
+    max-width: 680px;
+    margin: 3rem auto;
+    padding: 0 1.25rem;
+}
+
+.nav-bar a {
+    margin-left: 1.5rem;
+}
+
+.nav-icon {
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-txt);
+}
+
+/* styles for homepage */
+.intro-block {
+    margin-bottom: 2.5rem;
+}
+
+.feed-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feed-card {
+    background: var(--surface-layer);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.card-title a {
+    color: var(--primary-txt);
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    text-decoration: underline var(--widget-border) 3px;
+}
+
+.card-desc {
+    color: var(--primary-txt);
+    margin: 0.5rem 0 1rem 0;
+}
+
+/* Reusable tag badge modules */
+.tag-badge {
+    display: inline-block;
+    background-color: var(--pastel-accent);
+    color: var(--canvas-bg);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s;
+}
+
+.tag-badge:hover {
+    opacity: 0.8;
+}
+
+.tag-post-list a {
+    color: var(--primary-txt);
+    font-style: italic;
+}

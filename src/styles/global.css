@@ -19,10 +19,21 @@ body {
     padding: 0;
 }
 
+em {
+    font-style: normal;
+    font-weight: 800;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
 .nav-link:hover,
 a:hover {
     text-decoration: underline var(--widget-border) 3px;
 }
+
+/* Content */
 
 .blog-header {
     display: flex;
@@ -34,8 +45,7 @@ a:hover {
 }
 
 .header-border {
-    color: var(--widget-border); 
-    width: 90%;
+    color: var(--widget-border);
 }
 
 .content-container {
@@ -43,6 +53,21 @@ a:hover {
     margin: 3rem auto;
     padding: 0 1.25rem;
 }
+
+.content-image-break-width {
+    display: block;
+    width: 100vw;
+    max-width: 800px; /* Adjust this to make it as wide as you want */
+    height: auto;
+
+    /* The magic math trick that forces centering outside a 680px container */
+    margin: 2.5rem calc(50% - 50vw) !important;
+    transform: translateX(calc(50vw - 50%));
+
+    border-radius: 8px; /* Optional: matches your card vibe */
+}
+
+/* navigation bar */
 
 .nav-bar a {
     margin-left: 1.5rem;
@@ -63,6 +88,31 @@ a:hover {
 /* styles for homepage */
 .intro-block {
     margin-bottom: 2.5rem;
+}
+
+.intro-block h1 {
+    font-size: 3rem;
+    text-decoration: underline solid var(--widget-border) 0.3rem;
+    transition: text-decoration 1s;
+}
+
+.intro-block h1:hover {
+    text-decoration: underline solid var(--widget-border) 1rem;
+}
+
+.projects-grid,
+.feed-grid {
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.projects-grid h2 {
+    grid-column: 1 / -1;
 }
 
 .feed-grid {
@@ -103,6 +153,7 @@ a:hover {
     text-decoration: none;
     margin-right: 0.5rem;
     transition: opacity 0.2s;
+    cursor: pointer;
 }
 
 .tag-badge:hover {
@@ -112,4 +163,13 @@ a:hover {
 .tag-post-list a {
     color: var(--primary-txt);
     font-style: italic;
+}
+
+/* Project page */
+.project-links {
+    margin: 0 0 1rem;
+}
+
+.project-links a {
+    color: var(--primary-txt)
 }

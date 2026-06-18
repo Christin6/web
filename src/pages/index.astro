@@ -10,16 +10,39 @@ const chronologicalEntries = blogEntries.sort((a, b) => b.data.pubDate.valueOf()
 <BaseLayout pageTitle="Maricel C - Home">
   <section class="intro-block">
     <img src="../icons/computer_explorer_2k-4.png" />
-    <h1>Welcome 👋</h1>
-    <p>Documenting deep-dives into application stacks, system backends, and biomechanics.</p>
+    <h1>Hi, I'm Maricel</h1>
+    <p>I'm a student who likes to build stuff and write sometimes. This is my little spot on the internet.</p>
   </section>
 
-  <div class="feed-grid">
+  <section class="projects-grid">
+    <h2>Projects</h2>
+    <article class="feed-card">
+      <h3 class="card-title">
+        <a href="./project/portfolio-tracker/">Portfolio Tracker</a>
+      </h3>
+      <p class="card-desc">this is desc</p>
+      <div class="badge-row">
+        <a class="tag-badge">React.js</a>
+      </div>
+    </article>
+    <article class="feed-card">
+      <h3 class="card-title">
+        <a href="">tes</a>
+      </h3>
+      <p class="card-desc">this is desc</p>
+      <div class="badge-row">
+        <a class="tag-badge">React.js</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="feed-grid">
+    <h2>Writings</h2>
     {chronologicalEntries.map((post) => (
       <article class="feed-card">
-        <h2 class="card-title">
+        <h3 class="card-title">
           <a href={`./blog/${post.id}`}>{post.data.title}</a>
-        </h2>
+        </h3>
         <p class="card-desc">{post.data.description}</p>
         <div class="badge-row">
           {post.data.tags.map((tag) => (
@@ -28,5 +51,5 @@ const chronologicalEntries = blogEntries.sort((a, b) => b.data.pubDate.valueOf()
         </div>
       </article>
     ))}
-  </div>
+  </section>
 </BaseLayout>

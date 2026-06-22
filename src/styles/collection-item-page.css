@@ -1,0 +1,14 @@
+@import "variables.css";
+
+.content-container img {
+    display: block;
+    width: 100vw;
+    max-width: 800px; /* Adjust this to make it as wide as you want */
+    height: auto;
+
+    /* The magic math trick that forces centering outside a 680px container */
+    margin: 2.5rem calc(50% - 50vw) !important;
+    transform: translateX(calc(50vw - 50%));
+
+    border-radius: 8px; /* Optional: matches your card vibe */
+}

@@ -1,0 +1,37 @@
+---
+title: "Portfolio Tracker"
+description: "Unified investment dashboard with real-time news and multi-currency normalization."
+techStack: ["react.js", "express.js", "jwt", "mongodb"]
+featured: true
+demoLink: "https://portfolio-tracker-5om4.onrender.com/"
+sourceLink: "https://github.com/Christin6/Portfolio-Tracker"
+---
+
+## Features
+- Search and add stocks to holdings.
+- Edit stock holdings dynamically.
+- Summary of total cost, value, and profit/loss.
+- Toggle and change the currency on the portfolio summary.
+- Visual breakdown of stock allocation compared to total stock held.
+- Integrated feed fetching international news and Indonesian market news.
+- Automatically adds currency options when a user adds a stock from that specific region.
+
+## Reason it's made
+I was using multiple apps to track my investments—one for Indonesian stocks and another for US stocks. While it worked okay, I wanted a unified view of everything I owned in one place. I also wanted to glance at the daily news whenever I checked my holdings. 
+
+Another major annoyance was that current tracking apps use different currencies for their summaries. This app exists so I can normalize my multi-currency assets and have everything I need right in a single dashboard.
+
+## Structure
+- **Database:** MongoDB (hosted via MongoDB Atlas).
+- **Backend:** Express.js handling robust REST API endpoints structured cleanly with routers.
+- **Frontend:** React.js. Server state (stock data, fetching, and caching) is managed entirely with React Query using a one-hour stale time to prevent hitting API limits. Client-side state (like currency toggles and user authentication state) is handled globally via Zustand.
+- **Authentication:** JSON Web Tokens (JWT). Tokens are issued upon login and validated via custom middleware on every protected API route. Passwords are safely hashed with bcrypt before storage. To prevent IDOR vulnerabilities, route protection strictly enforces asset ownership verification. The auth flow stores the token securely and rehydrates it on page load so sessions persist across browser refreshes.
+
+## Mistakes & Learnings
+- **Not working on authentication first:** Building out the core Express routers *before* writing the authentication layer forced me to go back and rewrite almost all endpoints later to wrap them securely in middleware. Lesson learned: establish security borders first.
+- **Over-engineering business logic before database setup:** I initially relied heavily on temporary local Zustand stores to mock the user holdings for the frontend prototype. Once it came time to actually integrate MongoDB, I had to completely rewrite a lot of that logic to accommodate the database structure and asynchronous data flows.
+
+## Images
+![Active dashboard screenshot](../../assets/images/portfolio-tracker/dashboard.png)
+
+![User's signup page](../../assets/images/portfolio-tracker/signup-page.png)

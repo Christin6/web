@@ -1,8 +1,42 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const projectEntries = await getCollection("project");
+
+const featuredProjects = projectEntries.filter(
+    (project) => project.data.featured === true,
+);
 ---
 
 <BaseLayout pageTitle="Projects">
     <h1>My Projects</h1>
-    <p>This is a singular, standalone page built with Astro!</p>
+
+    <section class="feed-grid">
+        {
+            featuredProjects.map((project) => (
+                <article class="feed-card">
+                    <h3 class="card-title">
+                        <a href={`./project/${project.id}`}>
+                            {project.data.title}
+                        </a>
+                    </h3>
+                    <p class="card-desc">{project.data.description}</p>
+                    <nav class="project-links">
+                        <a target="_blank" href={project.data.demoLink}>
+                            Demo
+                        </a>
+                        <a target="_blank" href={project.data.sourceLink}>
+                            Source
+                        </a>
+                    </nav>
+                    <div class="badge-row">
+                        {project.data.techStack.map((stack) => (
+                            <a class="tag-badge">{stack}</a>
+                        ))}
+                    </div>
+                </article>
+            ))
+        }
+    </section>
 </BaseLayout>

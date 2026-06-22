@@ -1,0 +1,37 @@
+---
+import "../../styles/collection-item-page.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+// 1. Generate a path for every markdown file found
+export async function getStaticPaths() {
+    const projects = await getCollection("project");
+    return projects.map((project) => ({
+        params: { id: project.id },
+        props: { project },
+    }));
+}
+
+// 2. Grab the specific post data for this URL
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout pageTitle={project.data.title}>
+    <h1>{project.data.title}</h1>
+    <p>{project.data.description}</p>
+    <nav class="project-links">
+        <a target="_blank" href={project.data.demoLink}>Demo</a>
+        <a target="_blank" href={project.data.sourceLink}>Source</a>
+    </nav>
+    <div class="badge-row">
+        {
+            project.data.techStack.map((stack: string) => (
+                <a class="tag-badge">{stack}</a>
+            ))
+        }
+    </div>
+    <div class="content-container">
+        <Content />
+    </div>
+</BaseLayout>

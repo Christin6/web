@@ -29,69 +29,10 @@ a:hover {
     text-decoration: underline var(--widget-border) 3px;
 }
 
-/* Content Layout */
-.blog-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 1.5rem 1.25rem;
-}
-
-.header-border {
-    color: var(--widget-border);
-}
-
 .content-container {
     max-width: 680px;
     margin: 3rem auto;
     padding: 0 1.25rem;
-}
-
-/* Navigation Bar */
-.nav-bar {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.nav-toggle-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: var(--primary-txt);
-    border-radius: 1px;
-    transition:
-        transform 0.2s,
-        opacity 0.2s;
-}
-
-.site-title strong {
-    font-size: large;
-}
-
-.nav-icon {
-    vertical-align: middle;
-    width: 18px;
-    height: 18px;
 }
 
 /* Homepage Styles */
@@ -130,30 +71,8 @@ a:hover {
     margin: 0.5rem 0 1rem 0;
 }
 
-/* Reusable Components */
-.tag-badge {
-    display: inline-block;
-    background-color: var(--pastel-accent);
-    color: var(--canvas-bg);
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.25rem 0.65rem;
-    border-radius: 50px;
-    text-decoration: none;
-    margin-right: 0.5rem;
-    transition: opacity 0.2s;
-    cursor: pointer;
-}
-
-.tag-badge:hover {
-    opacity: 0.8;
-}
-
-.tag-post-list a {
-    font-style: italic;
-}
-
 .project-links {
+    /* for demo and source links row */
     margin: 0 0 1rem;
     display: flex;
     gap: 1rem;

@@ -1,5 +1,7 @@
 ---
 const { pageTitle } = Astro.props;
+import "../styles/tags.css";
+import "../styles/nav-bar.css";
 import "../styles/global.css";
 ---
 
@@ -30,13 +32,20 @@ import "../styles/global.css";
                 <a href="/" class="nav-link">
                     <img
                         class="nav-icon"
-                        src="/icons/internet_connection_wiz-3.png"
+                        src="/icons/computer_explorer_2k-4.png"
                     />
                     Home
                 </a>
                 <a href="/projects" class="nav-link">
                     <img class="nav-icon" src="/icons/console_prompt-0.png" />
                     Projects
+                </a>
+                <a href="/blog" class="nav-link">
+                    <img
+                        class="nav-icon"
+                        src="/icons/internet_connection_wiz-3.png"
+                    />
+                    Notes
                 </a>
                 <a href="/about" class="nav-link">
                     <img class="nav-icon" src="/icons/modem-4.png" />

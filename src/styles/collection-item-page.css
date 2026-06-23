@@ -1,6 +1,5 @@
-@import "variables.css";
-
 .content-container img {
+    /* its own part so it only applies to individual post, not the whole website */
     display: block;
     width: 100vw;
     max-width: 800px; /* Adjust this to make it as wide as you want */

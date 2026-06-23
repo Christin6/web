@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const blogEntries = await getCollection("blog");
+
+const chronologicalEntries = blogEntries.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout pageTitle="Notes">
+    <img src="../icons/internet_connection_wiz-3.png" />
+    <h1>Notes</h1>
+
+    <section class="feed-grid">
+        {
+            chronologicalEntries.map((post) => (
+                <article class="feed-card">
+                    <h3 class="card-title">
+                        <a href={`./blog/${post.id}`}>{post.data.title}</a>
+                    </h3>
+                    <p class="card-desc">{post.data.description}</p>
+                    <div class="badge-row">
+                        {post.data.tags.map((tag) => (
+                            <a href={`./tags/${tag}`} class="tag-badge">
+                                #{tag}
+                            </a>
+                        ))}
+                    </div>
+                </article>
+            ))
+        }
+    </section>
+</BaseLayout>

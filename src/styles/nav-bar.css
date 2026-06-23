@@ -1,0 +1,56 @@
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+}
+
+.header-border {
+    color: var(--widget-border);
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--primary-txt);
+    border-radius: 1px;
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+.site-title strong {
+    font-size: large;
+}
+
+.nav-icon {
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+}

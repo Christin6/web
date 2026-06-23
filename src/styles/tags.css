@@ -1,0 +1,17 @@
+.tag-badge {
+    display: inline-block;
+    background-color: var(--pastel-accent);
+    color: var(--canvas-bg);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.tag-badge:hover {
+    opacity: 0.8;
+}

@@ -1,5 +1,6 @@
 @import "variables.css";
 
+/* Base Elements */
 body {
     background-color: var(--canvas-bg);
     color: var(--primary-txt);
@@ -9,7 +10,6 @@ body {
         sans-serif;
     line-height: 1.7;
     margin: 0;
-    padding: 0;
 }
 
 em {
@@ -21,13 +21,15 @@ h2 {
     margin-bottom: 0;
 }
 
-.nav-link:hover,
+a {
+    color: var(--primary-txt);
+}
+
 a:hover {
     text-decoration: underline var(--widget-border) 3px;
 }
 
-/* Content */
-
+/* Content Layout */
 .blog-header {
     display: flex;
     justify-content: space-between;
@@ -47,12 +49,16 @@ a:hover {
     padding: 0 1.25rem;
 }
 
-/* navigation bar */
-
+/* Navigation Bar */
 .nav-bar {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .nav-toggle {
@@ -73,7 +79,9 @@ a:hover {
     height: 2px;
     background-color: var(--primary-txt);
     border-radius: 1px;
-    transition: transform 0.2s, opacity 0.2s;
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
 }
 
 .site-title strong {
@@ -86,12 +94,72 @@ a:hover {
     height: 18px;
 }
 
-.nav-link {
-    text-decoration: none;
-    font-weight: 600;
-    color: var(--primary-txt);
+/* Homepage Styles */
+.intro-block {
+    margin-bottom: 2.5rem;
 }
 
+.intro-block h1 {
+    font-size: 3rem;
+    text-decoration: underline solid var(--widget-border) 0.3rem;
+    transition: text-decoration 1s;
+}
+
+.intro-block h1:hover {
+    text-decoration: underline solid var(--widget-border) 1rem;
+}
+
+.feed-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.feed-card {
+    background: var(--surface-layer);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.card-title a {
+    text-decoration: none;
+}
+
+.card-desc {
+    margin: 0.5rem 0 1rem 0;
+}
+
+/* Reusable Components */
+.tag-badge {
+    display: inline-block;
+    background-color: var(--pastel-accent);
+    color: var(--canvas-bg);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+.tag-badge:hover {
+    opacity: 0.8;
+}
+
+.tag-post-list a {
+    font-style: italic;
+}
+
+.project-links {
+    margin: 0 0 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Media Queries */
 @media (max-width: 600px) {
     .blog-header {
         flex-wrap: wrap;
@@ -135,84 +203,4 @@ a:hover {
     .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
     }
-}
-
-/* styles for homepage */
-.intro-block {
-    margin-bottom: 2.5rem;
-}
-
-.intro-block h1 {
-    font-size: 3rem;
-    text-decoration: underline solid var(--widget-border) 0.3rem;
-    transition: text-decoration 1s;
-}
-
-.intro-block h1:hover {
-    text-decoration: underline solid var(--widget-border) 1rem;
-}
-
-.feed-grid {
-    margin-bottom: 3rem;
-}
-
-.feed-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.feed-card {
-    background: var(--surface-layer);
-    padding: 1.5rem;
-    border-radius: 12px;
-}
-
-.card-title a {
-    color: var(--primary-txt);
-    text-decoration: none;
-}
-
-.card-title a:hover {
-    text-decoration: underline var(--widget-border) 3px;
-}
-
-.card-desc {
-    color: var(--primary-txt);
-    margin: 0.5rem 0 1rem 0;
-}
-
-/* Reusable tag badge modules */
-.tag-badge {
-    display: inline-block;
-    background-color: var(--pastel-accent);
-    color: var(--canvas-bg);
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 0.25rem 0.65rem;
-    border-radius: 50px;
-    text-decoration: none;
-    margin-right: 0.5rem;
-    transition: opacity 0.2s;
-    cursor: pointer;
-}
-
-.tag-badge:hover {
-    opacity: 0.8;
-}
-
-.tag-post-list a {
-    color: var(--primary-txt);
-    font-style: italic;
-}
-
-/* Specific project links */
-.project-links {
-    margin: 0 0 1rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.project-links a {
-    color: var(--primary-txt);
 }

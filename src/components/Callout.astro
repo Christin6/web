@@ -1,0 +1,16 @@
+---
+// src/components/Callout.astro
+const { type = "info" } = Astro.props;
+
+const styles = {
+    info: "background-color: #e0f2fecc; border-left: 4px solid #0284c7; color: #0369a1;",
+    warning:
+        "background-color: #fef3c7cc; border-left: 4px solid #d97706; color: #b45309;",
+};
+---
+
+<div
+    style={`padding: 0.1rem 1rem; margin: 1.5rem 0; border-radius: 4px; ${styles[type]}`}
+>
+    <slot />
+</div>

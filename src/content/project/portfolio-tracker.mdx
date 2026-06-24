@@ -31,8 +31,11 @@ Another major annoyance was that current tracking apps use different currencies 
 - **Database:** MongoDB (hosted via MongoDB Atlas).
 - **Backend:** Express.js handling robust REST API endpoints structured cleanly with routers.
 - **Frontend:** React.js. Server state (stock data, fetching, and caching) is managed entirely with React Query using a one-hour stale time to prevent hitting API limits. Client-side state (like currency toggles and user authentication state) is handled globally via Zustand.
-- **Authentication:** JSON Web Tokens (JWT). Tokens are issued upon login and validated via custom middleware on every protected API route. Passwords are safely hashed with bcrypt before storage. The auth flow stores the token securely and rehydrates it on page load so sessions persist across browser refreshes.
-- **Security:** Rate limitting for login and signup forms. Input sanitization for ticker input and username sign up input. To prevent IDOR vulnerabilities, route protection strictly enforces asset ownership verification.
+- **Authentication:** JSON Web Tokens (JWT). Tokens are issued upon login and validated via custom middleware on every protected API route. Passwords are hashed with bcrypt before storage. The auth flow stores the token securely and rehydrates it on page load so sessions persist across browser refreshes.
+- **Security:** 
+    - Rate limitting for login and signup forms. 15 minutes time window per IP, 10 allowed request per window per IP. Using express-rate-limitter.
+    - Input sanitization for ticker input and username sign up input.
+    - To prevent IDOR vulnerabilities, route protection strictly enforces asset ownership verification.
 
 ## Images
 ![Active dashboard screenshot](../../assets/images/portfolio-tracker/dashboard.png)
